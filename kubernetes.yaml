@@ -1,0 +1,8 @@
+apiVersion: extensions/v1beta1
+kind: PodSecurityPolicy
+spec:
+  volumes:
+    # Kubernetes Host Volume Types
+    - hostPath
+  allowedHostPaths:
+    - pathPrefix: /etc/docker
