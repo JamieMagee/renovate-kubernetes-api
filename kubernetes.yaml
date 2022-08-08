@@ -1,18 +1,18 @@
 apiVersion: extensions/v1beta1
-    kind: ReplicaSet
+kind: ReplicaSet
+metadata:
+  name: nginx
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
     metadata:
-      name: nginx
-      namespace: default
+      labels:
+        app: nginx
     spec:
-      replicas: 2
-      selector:
-        matchLabels:
-          app: nginx
-      template:
-        metadata:
-          labels:
-            app: nginx
-        spec:
-          containers:
-            - image:  nginx
-              name:  nginx
+      containers:
+        - image:  nginx
+          name:  nginx
